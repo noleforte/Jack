@@ -41,12 +41,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Обработчик для кнопки "Узнать больше"
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', function(e) {
+    // Обработчик для кнопки копирования
+    const copyButton = document.getElementById('copyButton');
+    if (copyButton) {
+        copyButton.addEventListener('click', function(e) {
             e.preventDefault();
-            openModal();
+            
+            const textToCopy = 'FZSbrH376X6v1jBgRPD9Jc6v2sgZNYimv56MFNvpump';
+            
+            // Копируем в буфер обмена
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                // Показываем уведомление об успешном копировании
+                const originalText = copyButton.textContent;
+                copyButton.textContent = 'Copied!';
+                copyButton.style.background = 'rgba(101, 118, 134, 0.3)';
+                
+                // Возвращаем оригинальный текст через 2 секунды
+                setTimeout(() => {
+                    copyButton.textContent = originalText;
+                    copyButton.style.background = 'rgba(101, 118, 134, 0.1)';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Ошибка копирования: ', err);
+                // Fallback для старых браузеров
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const originalText = copyButton.textContent;
+                copyButton.textContent = 'Copied!';
+                copyButton.style.background = 'rgba(101, 118, 134, 0.3)';
+                
+                setTimeout(() => {
+                    copyButton.textContent = originalText;
+                    copyButton.style.background = 'rgba(101, 118, 134, 0.1)';
+                }, 2000);
+            });
         });
     }
     
@@ -80,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Анимация появления элементов при загрузке страницы
     function animateOnScroll() {
-        const elements = document.querySelectorAll('.hero-title, .hero-subtitle, .cta-button');
+        const elements = document.querySelectorAll('.hero-title, .hero-image, .cta-button');
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

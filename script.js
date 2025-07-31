@@ -249,23 +249,55 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработчик для иконок
     const sideIcons = document.querySelectorAll('.side-icon');
     let iconsScattered = false;
+    let iconsClicked = false;
+    
+    // Ссылки для иконок
+    const iconLinks = {
+        '1': 'https://x.com/Jack674683',
+        '2': 'https://t.me/Jack674683',
+        '3': 'https://www.dextools.io/app/en/solana/pair-explorer/EkeqFgRkc73baxCcpEEuWj3XttVSVb3TzevMLztHX3ft?t=1753986838553',
+        '4': 'https://dexscreener.com/solana/FZSbrH376X6v1jBgRPD9Jc6v2sgZNYimv56MFNvpump'
+    };
     
     sideIcons.forEach(icon => {
         icon.addEventListener('click', function() {
+            const iconNumber = this.getAttribute('data-icon');
+            
             if (!iconsScattered) {
-                // Разъезжаем иконки по углам
+                // Первый клик - разъезжаем иконки
                 sideIcons.forEach(icon => {
                     icon.classList.add('scattered');
                 });
                 iconsScattered = true;
+                iconsClicked = true;
+            } else if (iconsClicked) {
+                // Второй клик - открываем ссылки
+                const link = iconLinks[iconNumber];
+                if (link) {
+                    window.open(link, '_blank');
+                }
             } else {
                 // Возвращаем иконки на место
                 sideIcons.forEach(icon => {
                     icon.classList.remove('scattered');
                 });
                 iconsScattered = false;
+                iconsClicked = false;
             }
         });
+    });
+    
+    // Сброс состояния при клике вне иконок
+    document.addEventListener('click', function(e) {
+        if (!e.target.classList.contains('side-icon')) {
+            if (iconsScattered) {
+                sideIcons.forEach(icon => {
+                    icon.classList.remove('scattered');
+                });
+                iconsScattered = false;
+                iconsClicked = false;
+            }
+        }
     });
     
     // Инициализация завершена

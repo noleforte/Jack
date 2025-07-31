@@ -56,6 +56,31 @@ body {
     flex: 1;
 }
 
+.buy-button {
+    margin-right: 20px;
+}
+
+.buy-link {
+    background: rgba(101, 118, 134, 0.1);
+    border: 2px solid rgba(101, 118, 134, 0.2);
+    color: #657686;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Impact', 'Inter', sans-serif;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.buy-link:hover {
+    background: rgba(101, 118, 134, 0.2);
+    border-color: rgba(101, 118, 134, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
 .nav-item {
     position: relative;
 }
@@ -398,6 +423,15 @@ body {
         padding: 20px 0;
         gap: 0;
     }
+    
+    .buy-button {
+        margin-right: 10px;
+    }
+    
+    .buy-link {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
 
     .nav-menu.active {
         left: 0;
@@ -481,21 +515,25 @@ body {
     .icon-1.scattered {
         top: -80px;
         left: -80px;
+        transform: scale(0.8);
     }
     
     .icon-2.scattered {
         top: -80px;
         right: -80px;
+        transform: scale(0.8);
     }
     
     .icon-3.scattered {
         bottom: -80px;
         left: -80px;
+        transform: scale(0.8);
     }
     
     .icon-4.scattered {
         bottom: -80px;
         right: -80px;
+        transform: scale(0.8);
     }
 
     .main-content {

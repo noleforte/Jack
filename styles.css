@@ -575,8 +575,15 @@ body {
     .hero-subtitle {
         font-size: 1rem;
     }
-
-
+    
+    .buy-button {
+        margin-right: 60px;
+    }
+    
+    .buy-link {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 }
 
 /* Улучшения для больших экранов */

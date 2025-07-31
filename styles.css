@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Impact', 'Inter', sans-serif;
     line-height: 1.6;
     color: #2c2c2c;
     overflow-x: hidden;
@@ -29,18 +29,31 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 80px;
     position: relative;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 50px;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 
 .nav-item {
@@ -51,9 +64,9 @@ body {
     text-decoration: none;
     color: #2c2c2c;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 24px;
     transition: all 0.3s ease;
-    padding: 10px 0;
+    padding: 15px 0;
     position: relative;
 }
 
@@ -85,58 +98,39 @@ body {
 }
 
 .bar {
-    width: 25px;
-    height: 3px;
+    width: 30px;
+    height: 4px;
     background: #2c2c2c;
-    margin: 3px 0;
+    margin: 4px 0;
     transition: 0.3s;
     border-radius: 2px;
 }
 
 /* Основной контент */
 .main-content {
-    margin-top: 70px;
-    min-height: calc(100vh - 70px);
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
 }
 
 .hero-section {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 30%, #2c2c2c 60%, #444 100%);
+    background: #ced9df;
     position: relative;
     overflow: hidden;
 }
 
 
 
-@keyframes patternMove {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 200px 200px;
-    }
-}
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('images/pattern/19742.jpg');
-    background-size: 500px 250px;
-    background-repeat: repeat;
-    opacity: 0.1;
-    animation: patternMove 30s linear infinite;
-}
+
+
 
 .hero-content {
     text-align: center;
-    color: white;
+    color: #2c2c2c;
     z-index: 1;
     position: relative;
     max-width: 600px;
@@ -148,24 +142,27 @@ body {
 .hero-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
+    font-family: 'Impact', 'Inter', sans-serif;
     margin-bottom: 20px;
     animation: fadeInUp 1s ease-out;
 }
 
 .hero-subtitle {
     font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-family: 'Impact', 'Inter', sans-serif;
     margin-bottom: 30px;
     opacity: 0.9;
     animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .cta-button {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(101, 118, 134, 0.1);
+    border: 2px solid rgba(101, 118, 134, 0.2);
+    color: #657686;
     padding: 15px 30px;
     font-size: 16px;
     font-weight: 600;
+    font-family: 'Impact', 'Inter', sans-serif;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -174,10 +171,10 @@ body {
 }
 
 .cta-button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(101, 118, 134, 0.2);
+    border-color: rgba(101, 118, 134, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Модальные окна */
@@ -281,10 +278,19 @@ body {
         justify-content: space-between;
     }
     
+    .nav-logo {
+        margin-left: 20px;
+    }
+    
+    .logo-img {
+        width: 35px;
+        height: 35px;
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 80px;
         flex-direction: column;
         background-color: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
@@ -394,7 +400,7 @@ body {
 /* Улучшения для больших экранов */
 @media (min-width: 1200px) {
     .nav-container {
-        max-width: 1400px;
+        max-width: 100%;
     }
 
     .hero-content {

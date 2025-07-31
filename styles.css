@@ -153,6 +153,76 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.hero-image {
+    position: relative;
+}
+
+.side-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.side-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: auto;
+    z-index: 10;
+}
+
+/* Начальные позиции иконок */
+.icon-1 {
+    top: 20%;
+    left: -80px;
+}
+
+.icon-2 {
+    top: 20%;
+    right: -80px;
+}
+
+.icon-3 {
+    bottom: 20%;
+    left: -80px;
+}
+
+.icon-4 {
+    bottom: 20%;
+    right: -80px;
+}
+
+/* Позиции при клике (по углам) */
+.icon-1.scattered {
+    top: -100px;
+    left: -100px;
+    transform: scale(0.8);
+}
+
+.icon-2.scattered {
+    top: -100px;
+    right: -100px;
+    transform: scale(0.8);
+}
+
+.icon-3.scattered {
+    bottom: -100px;
+    left: -100px;
+    transform: scale(0.8);
+}
+
+.icon-4.scattered {
+    bottom: -100px;
+    right: -100px;
+    transform: scale(0.8);
+}
+
 
 
 .hero-title {
@@ -230,11 +300,19 @@ body {
     text-align: center;
 }
 
-.modal-body h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2c2c2c;
-    margin-bottom: 20px;
+.modal-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .modal-body p {
@@ -363,8 +441,8 @@ body {
         padding: 30px 20px;
     }
 
-    .modal-body h2 {
-        font-size: 2rem;
+    .modal-img {
+        max-height: 300px;
     }
 }
 
@@ -373,6 +451,51 @@ body {
     .nav-container {
         padding: 0 15px;
         height: 60px;
+    }
+    
+    .side-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .icon-1 {
+        top: 15%;
+        left: -60px;
+    }
+    
+    .icon-2 {
+        top: 15%;
+        right: -60px;
+    }
+    
+    .icon-3 {
+        bottom: 15%;
+        left: -60px;
+    }
+    
+    .icon-4 {
+        bottom: 15%;
+        right: -60px;
+    }
+    
+    .icon-1.scattered {
+        top: -80px;
+        left: -80px;
+    }
+    
+    .icon-2.scattered {
+        top: -80px;
+        right: -80px;
+    }
+    
+    .icon-3.scattered {
+        bottom: -80px;
+        left: -80px;
+    }
+    
+    .icon-4.scattered {
+        bottom: -80px;
+        right: -80px;
     }
 
     .main-content {
@@ -400,12 +523,8 @@ body {
         padding: 25px 15px;
     }
 
-    .modal-body h2 {
-        font-size: 1.8rem;
-    }
-
-    .modal-body p {
-        font-size: 1rem;
+    .modal-img {
+        max-height: 250px;
     }
 }
 
@@ -419,9 +538,7 @@ body {
         font-size: 1rem;
     }
 
-    .modal-body h2 {
-        font-size: 1.5rem;
-    }
+
 }
 
 /* Улучшения для больших экранов */

@@ -246,6 +246,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Обработчик для иконок
+    const sideIcons = document.querySelectorAll('.side-icon');
+    let iconsScattered = false;
+    
+    sideIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+            if (!iconsScattered) {
+                // Разъезжаем иконки по углам
+                sideIcons.forEach(icon => {
+                    icon.classList.add('scattered');
+                });
+                iconsScattered = true;
+            } else {
+                // Возвращаем иконки на место
+                sideIcons.forEach(icon => {
+                    icon.classList.remove('scattered');
+                });
+                iconsScattered = false;
+            }
+        });
+    });
+    
     // Инициализация завершена
     console.log('Jack\'s website initialized successfully!');
 }); 

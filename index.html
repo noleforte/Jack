@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack's Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-modal="about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-modal="services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-modal="portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-modal="contact">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome</h1>
+                <p class="hero-subtitle">This is Jack's website</p>
+                <button class="cta-button" data-modal="welcome">Learn More</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Windows -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-body">
+                <h2>It's Jack</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

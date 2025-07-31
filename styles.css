@@ -1,0 +1,456 @@
+/* Сброс стилей и базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #2c2c2c;
+    overflow-x: hidden;
+}
+
+/* Навигационное меню */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    position: relative;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #2c2c2c;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    padding: 10px 0;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #555;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #555;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Гамбургер меню для мобильных устройств */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: #2c2c2c;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Основной контент */
+.main-content {
+    margin-top: 70px;
+    min-height: calc(100vh - 70px);
+}
+
+.hero-section {
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 30%, #2c2c2c 60%, #444 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+@keyframes patternMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 200px 200px;
+    }
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/pattern/19742.jpg');
+    background-size: 500px 250px;
+    background-repeat: repeat;
+    opacity: 0.1;
+    animation: patternMove 30s linear infinite;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+    position: relative;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    margin-bottom: 30px;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.cta-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.cta-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+    overflow: hidden;
+}
+
+.modal-body {
+    padding: 40px;
+    text-align: center;
+}
+
+.modal-body h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+.modal-body p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.close-button:hover {
+    color: #2c2c2c;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 15px 0;
+    }
+
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 20px;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    .modal-body {
+        padding: 30px 20px;
+    }
+
+    .modal-body h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 15px;
+        height: 60px;
+    }
+
+    .main-content {
+        margin-top: 60px;
+    }
+
+    .hero-section {
+        height: calc(100vh - 60px);
+    }
+
+    .hero-content {
+        padding: 0 15px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    .modal-body {
+        padding: 25px 15px;
+    }
+
+    .modal-body h2 {
+        font-size: 1.8rem;
+    }
+
+    .modal-body p {
+        font-size: 1rem;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media (max-width: 320px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .modal-body h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Улучшения для больших экранов */
+@media (min-width: 1200px) {
+    .nav-container {
+        max-width: 1400px;
+    }
+
+    .hero-content {
+        max-width: 800px;
+    }
+
+    .modal-content {
+        max-width: 600px;
+    }
+}
+
+/* Темная тема для устройств с темным режимом */
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #e5e5e5;
+    }
+
+    .navbar {
+        background: rgba(0, 0, 0, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        color: #e5e5e5;
+    }
+
+    .nav-link:hover {
+        color: #b0b0b0;
+    }
+
+    .nav-link::after {
+        background: #b0b0b0;
+    }
+
+    .bar {
+        background: #e5e5e5;
+    }
+
+    .modal-content {
+        background: #1a1a1a;
+        color: #e5e5e5;
+    }
+
+    .modal-body h2 {
+        color: #e5e5e5;
+    }
+
+    .modal-body p {
+        color: #b0b0b0;
+    }
+
+    .close-button {
+        color: #888;
+    }
+
+    .close-button:hover {
+        color: #e5e5e5;
+    }
+} 
